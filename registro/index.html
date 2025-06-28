@@ -1,0 +1,30 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <form action="php/registro_usuario_be.php" method="POST" class="form-register">
+      <p>Para hacer notas, agregar favoritos, ver el historial y acceder a otros servicios,
+        debe crear una <a href="http://">cuenta gratis</a> como lector
+      </p>
+
+      <input class="controls" type="text" name="nombres" id="nombres" placeholder="Nombre completo">
+      <input class="controls" type="email" name="correo " id="nombres" placeholder="correo electronico">
+      <input class="controls" type="email" name="confirmar_correo" id="nombres" placeholder="confirmar correo electronico">
+      <input class="controls" type="password" name="contraseña" id="nombres" placeholder="contraseña">
+      <input class="controls" type="password" name="confirmar_contraseña" id="nombres" placeholder="confirmar contraseña">
+        <p>Autorizo y Acepto la <a href="http://">Politica de tratamiento de la informacion </a>y el 
+        <a href="http://">Marco general de uso</a></p>
+            <input class="boton" type="submit" value="Crear cuenta" >
+
+    </form>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> 

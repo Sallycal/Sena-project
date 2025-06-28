@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorías - ConectaLibros</title>
+  <link rel="stylesheet" href="page-style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: hsl(249, 30%, 68%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;    }
+
+    .categorias-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .categoria-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+    }
+
+    .categoria-card:hover {
+      transform: scale(1.05);
+    }
+
+    .categoria-card h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .categoria-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .categoria-card a:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .categoria-card img {
+  width: 100%; 
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 5px; 
+  margin-bottom: 10px; 
+}
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ConectaLibros</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="mi_cuenta.html">Mi Cuenta</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="categorias-container">
+    <h2>Categorías</h2>
+    <div class="categorias-grid">
+      <div class="categoria-card">
+        <h3>Novelas</h3>
+        <img src="img/novela.png" alt="novela">
+        <a href="https://blog.selfbank.es/las-novelas-mas-leidas-y-las-que-mas-facturan/">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Literatura</h3>
+        <img src="img/literatura.webp" alt="literatura">
+        <a href="https://www.planetadelibros.com/blog/actualidad/15/nuestros-tops/11/articulo/15-clasicos-de-la-literatura-que-todo-gran-lector-debe-leer/386">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Poesía</h3>
+        <img src="img/poesia.jpg" alt="poesia">
+        <a href="https://www.elle.com/es/living/ocio-cultura/g38379687/mejores-libros-de-poesia-moderna/">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Romances Líricos</h3>
+        <img src="img/romance literario.jpg" alt="romance lirico">
+        <a href="https://www.lanacion.com.ar/lifestyle/las-10-novelas-romanticas-mas-leidas-nid2337797/">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Fábula</h3>
+        <img src="img/fabulas.webp" alt="fabula">
+        <a href="https://www.culturagenial.com/es/las-fabulas-de-esopo/">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Leyendas</h3>
+        <img src="img/leyenda-og.webp" alt="leyenda">
+        <a href="https://infolibros.org/libros-recomendados/mejores-libros-leyendas/">Explorar</a>
+      </div>
+      <div class="categoria-card">
+        <h3>Cuentos</h3>
+        <img src="img/cuentos.webp" alt="cuentos">
+        <a href="https://www.zendalibros.com/los-50-libros-mas-leidos-de-la-historia/">Explorar</a>
+      </div>
+
+      <div class="categoria-card">
+        <h3>Ciencia ficción</h3>
+        <img src="img/ciencia ficción.jpg" alt="comedia">
+        <a href="https://www.planetadelibros.com.co/libros/libros-de-ciencia-ficcion/00048">Explorar</a>
+      </div>
+      
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ConectaLibros</p>
+  </footer>
+
+</body>
+</html>
