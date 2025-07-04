@@ -48,16 +48,19 @@
       border-radius: 5px;
       outline: none;
       background: transparent;
+      outline: none;
     }
     
     .formulario label {
       position: absolute;
       left: 10px;
-      top: 50%;
+      top: 10px;
       transform: translateY(-50%);
       color: rgb(204, 204, 204);
       pointer-events: none;
       font-size: 14px;
+      transition: 0.3s ease all;
+
     }
     
     .formulario input[type="submit"] {
@@ -86,4 +89,16 @@
     .recordar:hover, .registrarse a:hover {
       text-decoration: underline;
     }
+    
+    input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    }
+
+    input {
+    color: #ffffff;
+    }
+
+
+
   

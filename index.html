@@ -6,27 +6,24 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="formulario">
-        <h1>ConectaLibros</h1>
-        <form method="post">
-            <div class="username">
-                <input type="text" required>
-                <label >nombre de usuario</label>
-            </div>
-
-            <div class="contraseña">
-                <input type="password" required>
-                <label >contraseña</label>
-            </div>
-
-            <div class="recordar">¿olvido su contraseña?</div>
-            <input type="submit" value="Iniciar sesion">
-                <div class="registrarse">
-                    <a href="quiero hacer el">registro</a>
-                </div>
-        </form>
+<div class="formulario">
+  <h1>ConectaLibros</h1>
+  <form method="post">
+    <div class="username">
+      <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
     </div>
+
+    <div class="contraseña">
+      <input type="password" name="password" placeholder="Contraseña" required>
+    </div>
+
+    <div class="recordar">¿Olvidó su contraseña?</div>
+    <input type="submit" value="Iniciar sesión">
     
-</body>
+    <div class="registrarse">
+      <a href="./registro/index.html">Registrarse</a>
+    </div>
+  </form>
+</div>
+
 </html>

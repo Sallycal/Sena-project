@@ -13,21 +13,21 @@
 
     $ejecutar = mysqli_query($conexion, $query);
 
-    if($ejecutar) {
-        echo '
-            <script>
-                alert("usuario almacenamiento exitosamente");
-                window.location = "../main.jsx";
-            </script> 
-        ';
+    if ($ejecutar) {
+    echo '
+        <script>
+            alert("Usuario almacenado exitosamente");
+            window.location = "../../pagina-libros/index.html";
+        </script> 
+    ';
 
     }else{
         echo '
              <script>
                 alert("intetalo de nuevo, usuario no almacenado");
-                window.location = "../main.jsx";
+                window.location = "../../pagina-libros/index.html";
             </script>
-        '
+        ';
     
     }
 ?>
