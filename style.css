@@ -85,11 +85,19 @@
       color: #f1f3f5;
       text-decoration: none;
     }
-    
+
+    .recordar a,
+    .recordar a:visited,
+    .recordar a:hover,
+    .recordar a:active {
+      color: white;
+      text-decoration: none;
+    }
+
     .recordar:hover, .registrarse a:hover {
       text-decoration: underline;
     }
-    
+
     input::placeholder {
     color: #ffffff;
     opacity: 1;
