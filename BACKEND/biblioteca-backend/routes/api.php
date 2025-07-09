@@ -3,21 +3,23 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Aquí puedes registrar rutas de API para tu aplicación.
-| Estas rutas se cargan automáticamente bajo el grupo de middleware "api".
-|
-*/
+//Ruta para registro
+Route::post('/register', [AuthController::class, 'register']);
 
-// Ruta para los libros
-Route::apiResource('books', BookController::class);
+//Ruta para login
+Route::post('/login', [AuthController::class, 'login']);
 
-// Ruta de ejemplo (puedes eliminarla si no usas autenticación)
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/books', [BookController::class, 'index']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/books/{book}', [BookController::class, 'show']);
+
+    Route::middleware('admin')->group(function () {
+        Route::post('/books', [BookController::class, 'store']);
+        Route::put('/books/{book}', [BookController::class, 'update']);
+        Route::delete('/books/{book}', [BookController::class, 'destroy']);
+    });
+
+        });
