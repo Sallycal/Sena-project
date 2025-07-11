@@ -11,6 +11,7 @@ Route::post('/register', [AuthController::class, 'register']);
 //Ruta para login
 Route::post('/login', [AuthController::class, 'login']);
 
+//Ruta para libros
 Route::get('/books', [BookController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
