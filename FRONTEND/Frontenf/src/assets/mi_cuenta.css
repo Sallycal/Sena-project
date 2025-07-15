@@ -1,0 +1,112 @@
+/* Estilo general del cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3edf3;
+}
+
+/* Encabezado */
+header {
+  background-color: hsl(249, 30%, 68%);
+  color: white;
+  padding: 42px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Sección Mi Cuenta */
+#mi-cuenta {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.account-info form {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-info label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+.account-info input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+}
+
+.account-info input:read-only {
+  color: #444;
+}
+
+/* Botón cerrar sesión */
+.account-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.account-actions button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.account-actions button:hover {
+  background-color: #45a049;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: white;
+  color: #333;
+  margin-top: 35px;
+}

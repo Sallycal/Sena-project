@@ -44,11 +44,11 @@ function renderBooks() {
     card.classList.add("book-card");
 
     card.innerHTML = `
-      <img src="src/components/img/${book.imagen}" alt="Portada del libro">
+        <img src="${book.imagen}" alt="Portada del libro">
       <h3>${book.titulo}</h3>
       <p><strong>Autor:</strong> ${book.autor}</p>
       <p>${book.descripcion}</p>
-      <a href="src/components/book-details.html?id=${book.id}">Ver Detalles</a>
+      <a href="book-details.html?id=${book.id}">Ver Detalles</a>
     `;
 
     container.appendChild(card);

@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
+  background-color: #f3edf3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ input[type="email"] {
 
 button {
   width: 100%;
-  background-color: #928bbb;
+  background-color: hsl(248, 41%, 75%);
   color: white;
   border: none;
   padding: 12px;

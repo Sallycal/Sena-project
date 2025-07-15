@@ -7,7 +7,7 @@
   
   body {
     font-family: 'Calibri', sans-serif;
-    background:#9b94c5;
+    background: f3edf3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
   .form-register {
     width: 100%;
     max-width: 500px;
-    background: #efeef0;
+    background: #e8daef;
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

@@ -3,7 +3,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color:silver;
+      background-color: #f3edf3;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -12,7 +12,7 @@
     
     .formulario {
       width: 400px;
-      background: #928bbb;
+      background: hsl(248, 41%, 75%);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 40px;
