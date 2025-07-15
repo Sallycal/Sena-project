@@ -13,7 +13,15 @@ class Book extends Model
         'autor',
         'año',
         'isbn',
-        'categorias',
         'imagen',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class)
+                ->withPivot('position')
+                ->withTimestamps()
+                ->orderBy('pivot_position'); // siempre ordenadas
+    }
+
 }

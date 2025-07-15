@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
         });
+
+        Route::get('/books/category/{category}', [BookController::class, 'byCategory']);

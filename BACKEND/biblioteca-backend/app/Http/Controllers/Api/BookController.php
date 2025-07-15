@@ -22,15 +22,37 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'titulo' => 'required|string',
-            'autor' => 'required|string',
-        ]);
+{
+    // Validar todos los campos
+    $request->validate([
+        'titulo' => 'required|string',
+        'autor' => 'required|string',
+        'descripcion' => 'nullable|string',
+        'año' => 'nullable|integer',
+        'isbn' => 'nullable|string',
+        'imagen' => 'nullable|string',
+        'categories' => 'nullable|array', // Debe ser un array si viene
+        'categories.*' => 'integer|exists:categories,id' // Cada categoría debe existir
+    ]);
 
-        return Book::create($request->all());
-        //crea un libro nuevo
+    // Crear el libro
+    $book = Book::create($request->only([
+        'titulo',
+        'autor',
+        'descripcion',
+        'año',
+        'isbn',
+        'imagen'
+    ]));
+
+    // Si mandaste categorías, asociarlas
+    if ($request->has('categories')) {
+        $book->categories()->sync($request->categories);
     }
+
+    // Devolver el libro con las categorías ya relacionadas
+    return response()->json($book->load('categories'), 201);
+}
 
     /**
      * Display the specified resource.
@@ -41,15 +63,37 @@ class BookController extends Controller
         //mostrar libro especifico
     }
 
-    /**
-     * Update the specified resource in storage.
-     */ 
-     public function update(Request $request, Book $book)
-    {
-        $book->update($request->all());
-        return $book;
-        //actualizar libro
+    public function update(Request $request, Book $book)
+{
+    $request->validate([
+        'titulo' => 'nullable|string',
+        'autor' => 'nullable|string',
+        'descripcion' => 'nullable|string',
+        'año' => 'nullable|integer',
+        'isbn' => 'nullable|string',
+        'imagen' => 'nullable|string',
+        'category_ids' => 'nullable|array',
+        'category_ids.*' => 'integer|exists:categories,id',
+    ]);
+
+    // Actualiza los campos normales
+    $book->update($request->only([
+        'titulo',
+        'descripcion',
+        'autor',
+        'año',
+        'isbn',
+        'imagen'
+    ]));
+
+    // Si el request trae category_ids, sincronizamos
+    if ($request->has('category_ids')) {
+        $book->categories()->sync($request->input('category_ids'));
     }
+
+    // Retorna el libro con sus categorías actualizadas
+    return $book->load('categories');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -62,4 +106,24 @@ class BookController extends Controller
     }
 
     
+    public function byCategory($category)
+{
+    $books = \App\Models\Book::whereHas('categories', function($query) use ($category) {
+        $query->where('name', $category);
+    })
+    ->with(['categories'])
+    ->get()
+    ->sortBy(function($book) use ($category) {
+        foreach ($book->categories as $cat) {
+            if ($cat->name === $category) {
+                return $cat->pivot->position;
+            }
+        }
+        return 999; // por si acaso
+    })
+    ->values();
+
+    return $books;
+}
+
 }
