@@ -21,36 +21,32 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(Request $request)
 {
     // Validar todos los campos
-    $request->validate([
+    $validated = $request->validate([
         'titulo' => 'required|string',
         'autor' => 'required|string',
         'descripcion' => 'nullable|string',
         'año' => 'nullable|integer',
         'isbn' => 'nullable|string',
         'imagen' => 'nullable|string',
-        'categories' => 'nullable|array', // Debe ser un array si viene
-        'categories.*' => 'integer|exists:categories,id' // Cada categoría debe existir
+        'categories' => 'nullable|array', 
+        'categories.*' => 'integer|exists:categories,id' 
     ]);
 
     // Crear el libro
-    $book = Book::create($request->only([
-        'titulo',
-        'autor',
-        'descripcion',
-        'año',
-        'isbn',
-        'imagen'
-    ]));
+    $book = Book::create($validated);
 
-    // Si mandaste categorías, asociarlas
-    if ($request->has('categories')) {
-        $book->categories()->sync($request->categories);
+    // Si mandaste categorías, asociarlas con posición
+    if (!empty($validated['categories'])) {
+        $categoriesWithPositions = [];
+        foreach (array_values($validated['categories']) as $index => $categoryId) {
+            $categoriesWithPositions[$categoryId] = ['position' => $index + 1];
+        }
+        $book->categories()->sync($categoriesWithPositions);
     }
 
-    // Devolver el libro con las categorías ya relacionadas
     return response()->json($book->load('categories'), 201);
 }
 
@@ -63,7 +59,7 @@ class BookController extends Controller
         //mostrar libro especifico
     }
 
-    public function update(Request $request, Book $book)
+public function update(Request $request, Book $book)
 {
     $request->validate([
         'titulo' => 'nullable|string',
@@ -86,13 +82,22 @@ class BookController extends Controller
         'imagen'
     ]));
 
-    // Si el request trae category_ids, sincronizamos
+    // Si se mandan categorías, sincronizarlas con posición
     if ($request->has('category_ids')) {
-        $book->categories()->sync($request->input('category_ids'));
+        $categories = $request->input('category_ids');
+
+        // Preparamos un array con la posición
+        $syncData = [];
+        foreach ($categories as $index => $categoryId) {
+            $syncData[$categoryId] = ['position' => $index + 1];
+        }
+
+        $book->categories()->sync($syncData);
     }
 
+
     // Retorna el libro con sus categorías actualizadas
-    return $book->load('categories');
+    return response()->json($book->load('categories'));
 }
 
     /**
@@ -105,25 +110,23 @@ class BookController extends Controller
         //eliminar libro
     }
 
-    
-    public function byCategory($category)
+ public function byCategory($categoryId)
 {
-    $books = \App\Models\Book::whereHas('categories', function($query) use ($category) {
-        $query->where('name', $category);
+    $books = \App\Models\Book::whereHas('categories', function($query) use ($categoryId) {
+        $query->where('categories.id', $categoryId);
     })
     ->with(['categories'])
     ->get()
-    ->sortBy(function($book) use ($category) {
+    ->sortBy(function($book) use ($categoryId) {
         foreach ($book->categories as $cat) {
-            if ($cat->name === $category) {
+            if ($cat->id == $categoryId) {
                 return $cat->pivot->position;
             }
         }
-        return 999; // por si acaso
+        return 999; // En caso de que no tenga esa categoría
     })
     ->values();
 
-    return $books;
+    return response()->json($books);
 }
-
 }
