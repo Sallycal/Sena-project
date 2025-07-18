@@ -46,8 +46,7 @@ function renderBooks() {
     card.innerHTML = `
         <img src="${book.imagen}" alt="Portada del libro">
       <h3>${book.titulo}</h3>
-      <p><strong>Autor:</strong> ${book.autor}</p>
-      <p>${book.descripcion}</p>
+      <h3>${book.autor}</h3>
       <a href="book-details.html?id=${book.id}">Ver Detalles</a>
     `;
 

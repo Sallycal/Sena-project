@@ -62,18 +62,25 @@ header nav a:hover {
 }
 
 .book-card {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
-    text-align: center;
-    width: 150px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: calc(20% - 1rem); /* 5 por fila */
+  height: 400px; /* altura igual para todas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* distribuye el contenido verticalmente */
 }
 
 .book-card img {
-    width: 100%;
-    height: auto;
+    width: 160px;
+    margin: 0 auto;
+    height: 240px;
     border-radius: 5px;
 }
 
