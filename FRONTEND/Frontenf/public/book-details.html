@@ -7,30 +7,31 @@
   <link rel="stylesheet" href="../src/assets/book-details.css"> 
 </head>
 <body>
- 
+
   <div class="book-card">
-  <h3 class="book-title">Ver detalles del libro</h3>
+    <h3 class="book-title">Ver detalles del libro</h3>
   </div>
-
-
-      <div class="botones">
-        <a href="#" class="btn-principal"> Ir al libro</a>
-        <a href="/book-list.html" class="btn-secundario">Volver a la lista</a>
-      </div>
-  
 
   <main>
-  <div id="book-detail" class="book-detail">
-    <img id="imagen" src="" alt="Portada del libro">
-    <h2 id="titulo"></h2>
-    <p><strong>Autor:</strong> <span id="autor"></span></p>
-    <p><strong>Descripcion:</strong> <span id="descripcion"></span></p>
-  </div>
+    <div id="book-detail" class="book-detail">
+
+      <img id="imagen" src="" alt="Portada del libro">
+
+      <div class="book-info">
+        <h2 id="titulo"></h2>
+        <p><strong>Autor:</strong> <span id="autor"></span></p>
+        <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
+
+        <div class="botones">
+          <a href="#" class="btn-principal">📓 Ir al libro</a>
+          <a href="/book-list.html" class="btn-secundario">Volver a la lista</a>
+        </div>
+      </div>
+    </div>
   </main>
 
-
-  <!-- Asegúrate de que el archivo script.js esté correctamente vinculado -->
   <script src="../src/js/book-details.js"></script>
 </body>
+
 </html>
 

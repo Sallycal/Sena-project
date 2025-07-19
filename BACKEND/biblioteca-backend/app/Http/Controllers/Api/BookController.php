@@ -13,7 +13,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        return Book::all();
+        $books = Book::where('activo', true)->get();
+         return response()->json($books);
         //listar todos los libros
 
     }
@@ -53,11 +54,17 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
-    {
-        return $book;
-        //mostrar libro especifico
+   public function show($id)
+{
+    $book = Book::find($id);
+
+    if (!$book || !$book->activo) {
+        return response()->json(['message' => 'Libro no encontrado o ha sido eliminado.'], 404);
     }
+
+    return response()->json($book);
+}
+
 
 public function update(Request $request, Book $book)
 {
@@ -103,18 +110,26 @@ public function update(Request $request, Book $book)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
-    {
-        $book->delete();
-        return response()->noContent();
-        //eliminar libro
+  public function destroy($id)
+{
+    try {
+        $book = Book::findOrFail($id);
+        $book->activo = false;
+        $book->save();
+
+        return response()->json(['message' => 'Libro eliminado'], 200);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Error al eliminar el libro', 'details' => $e->getMessage()], 500);
     }
+}
 
  public function byCategory($categoryId)
 {
-    $books = \App\Models\Book::whereHas('categories', function($query) use ($categoryId) {
-        $query->where('categories.id', $categoryId);
-    })
+    $books = \App\Models\Book::where('activo', true) 
+        ->whereHas('categories', function($query) use ($categoryId) {
+            $query->where('categories.id', $categoryId);
+        })
+
     ->with(['categories'])
     ->get()
     ->sortBy(function($book) use ($categoryId) {

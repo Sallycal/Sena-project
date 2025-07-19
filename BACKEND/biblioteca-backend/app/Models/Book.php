@@ -14,6 +14,8 @@ class Book extends Model
         'año',
         'isbn',
         'imagen',
+        'activo',
+        
     ];
 
     public function categories()
