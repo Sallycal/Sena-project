@@ -1,40 +1,38 @@
 
-
 const API_URL = "http://127.0.0.1:8000/api/books";
 const booksPerPage = 50;
 let currentPage = 1;
 let books = [];
 
 // Verificar si el script carga
-console.log("✅ script.js cargado");
+console.log(" script.js cargado");
 
-window.addEventListener("DOMContentLoaded", async () => {
-  console.log("✅ DOMContentLoaded");
-
+async function fetchAllBooks() {
   try {
-    console.log("🌐 Solicitando libros a la API:", API_URL);
+    console.log("Solicitando libros a la API:", API_URL);
     const res = await fetch(API_URL);
 
     if (!res.ok) {
-    throw new Error(`Error HTTP: ${res.status}`);
+      throw new Error(`Error HTTP: ${res.status}`);
     }
 
     books = await res.json();
-    console.log("📚 Libros recibidos:", books);
-
+    console.log("Libros recibidos:", books);
     renderBooks();
     updatePagination();
   } catch (error) {
-    console.error("❌ Error al cargar libros:", error);
+    console.error("Error al cargar libros:", error);
   }
-});
+}
+
+window.addEventListener("DOMContentLoaded", fetchAllBooks);
 
 function renderBooks() {
   const start = (currentPage - 1) * booksPerPage;
   const end = start + booksPerPage;
   const pageBooks = books.slice(start, end);
 
-  console.log(`🔍 Mostrando libros de ${start} a ${end}`);
+  console.log(` Mostrando libros de ${start} a ${end}`);
 
   const container = document.getElementById("book-list");
   container.innerHTML = "";
@@ -75,6 +73,35 @@ document.getElementById("next-btn").addEventListener("click", () => {
     currentPage++;
     renderBooks();
     updatePagination();
+  }
+
+});
+
+document.getElementById("search-btn").addEventListener("click", async () => {
+  const query = document.getElementById("search").value.trim();
+
+  if (!query) {
+    // Si no hay texto, volver a cargar todos los libros
+    currentPage = 1;
+    await fetchAllBooks();
+    return;
+  }
+
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/api/books/search?q=${encodeURIComponent(query)}`);
+
+    if (!res.ok) {
+     
+      throw new Error(`Error HTTP: ${res.status}`);
+
+    }
+
+    books = await res.json();
+    currentPage = 1;
+    renderBooks();
+    updatePagination();
+  } catch (error) {
+    console.error("Error en la búsqueda:", error);
   }
 });
   

@@ -14,6 +14,9 @@ Route::post('/login', [AuthController::class, 'login']);
 //Ruta para ver todos los libros
 Route::get('/books', [BookController::class, 'index']);
 
+//Ruta de buscador
+Route::get('/books/search', [BookController::class, 'search']);
+
 //Ruta que necesitan autenticacion
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -34,5 +37,9 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
 });
-    //Ruta de ver categoria
+
+//Ruta de ver categoria
 Route::get('/books/category/{category}', [BookController::class, 'byCategory']);
+
+
+
