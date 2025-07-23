@@ -107,3 +107,35 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+
+.category-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón completamente a la izquierda */
+.back-button {
+  position: absolute;
+  left: 0;
+  text-decoration: none;
+  background-color: #f3edf3;
+  border: 1px solid #b0a7e0;
+  color: #5e5a8d;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #d8d5e3;
+}
+
+/* Título centrado */
+.category-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}

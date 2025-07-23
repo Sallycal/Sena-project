@@ -4,7 +4,7 @@ const booksPerPage = 50;
 let currentPage = 1;
 let books = [];
 
-// Verificar si el script carga
+
 console.log(" script.js cargado");
 
 async function fetchAllBooks() {
@@ -81,7 +81,7 @@ document.getElementById("search-btn").addEventListener("click", async () => {
   const query = document.getElementById("search").value.trim();
 
   if (!query) {
-    // Si no hay texto, volver a cargar todos los libros
+
     currentPage = 1;
     await fetchAllBooks();
     return;
@@ -104,4 +104,28 @@ document.getElementById("search-btn").addEventListener("click", async () => {
     console.error("Error en la búsqueda:", error);
   }
 });
+
+function scrollToBooks() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderBooks();
+    updatePagination();
+    scrollToBooks(); 
+  }
+});
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  if (currentPage * booksPerPage < books.length) {
+    currentPage++;
+    renderBooks();
+    updatePagination();
+    scrollToBooks(); 
+  }
+});
+
+
   
