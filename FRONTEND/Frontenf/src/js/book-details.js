@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    alert("⚠ Debes iniciar sesión para ver los detalles del libro.");
+    const modal = document.getElementById("login-modal");
+    if (modal) {
+    modal.style.display = "flex";
+  }
     return;
   }
 
