@@ -53,6 +53,22 @@ header nav a:hover {
     background-color: #45a049;
 }
 
+.login-btn {
+  background-color: #f7f6fa;
+  color: blue;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none; /* Para quitar el subrayado si usas <a> */
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+}
+
+
+
+
 .book-list {
     display: flex; 
     gap: 1rem;
