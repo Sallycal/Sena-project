@@ -16,18 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Conexión con API Laravel
+    // Conexión con API 
     fetch("http://127.0.0.1:8000/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      credentials: "include", // si usas cookies
+      credentials: "include",
       body: JSON.stringify({
         name: nombre,
         email: email,
         password: contraseña,
-        password_confirmation: contraseña // Laravel aún requiere esto
+        password_confirmation: contraseña 
       }),
     })
     .then(response => {
@@ -39,20 +39,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       return response.json();
     })
+
     .then(data => {
       console.log("Registro exitoso:", data);
 
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
+    })
 
-      alert("Registro exitoso. Bienvenida, " + data.user.name);
-      // Redirigir si quieres:
-      // window.location.href = "login.html";
+    const alertModal = document.getElementById("register-alert");
+    const alertText = document.getElementById("register-alert-text");
+
+    alertText.textContent = " Registro exitoso. ¡Bienvenid@, " + data.user.name + "!";
+    alertModal.style.display = "flex";
+
     })
     .catch(error => {
       console.error("Error:", error);
       alert("Ocurrió un error: " + error.message);
     });
+
+    
   });
-});

@@ -3,31 +3,51 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookId = params.get('id'); // Obtener el ID del libro desde la URL
 
     if (bookId) {
-        loadPDF(bookId);
+        cargarLectura(bookId);
+
+        // ✅ Establecer el enlace dinámico del botón "Anterior"
+        const backButton = document.getElementById("back-button");
+        if (backButton) {
+            backButton.href = `./book-details.html?id=${bookId}`;
+        }
     } else {
         console.error("No se ha proporcionado un ID de libro.");
     }
 });
 
-async function loadPDF(bookId) {
+async function cargarLectura(bookId) {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("⚠️ Debes iniciar sesión para leer este libro.");
+        return;
+    }
+
     try {
-        // Asegúrate de que la URL está bien formada y tiene las comillas correctas
-        const res = await fetch(`http://127.0.0.1:8000/api/books/${bookId}`);
-        
+        const res = await fetch(`http://127.0.0.1:8000/api/books/${bookId}`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        });
+
         if (!res.ok) {
             throw new Error(`Error HTTP: ${res.status}`);
         }
 
         const book = await res.json();
-        
-        // Verifica que la URL del PDF se ha recibido correctamente
-        console.log("📜 PDF URL: ", book.pdf_filename);
 
-        // Ahora, carga el PDF en el iframe
-        const pdfUrl = book.pdf_filename;
-        document.getElementById('pdf-viewer').src = pdfUrl;
+        document.getElementById("titulo").textContent = book.titulo;
+        // Mostrar el PDF (si existe)
+        if (book.pdf_filename) {
+            document.getElementById("pdf-viewer").src = book.pdf_filename;
+        } else {
+            document.getElementById("pdf-container").innerHTML = "<p>⚠️ Este libro no tiene un PDF disponible.</p>";
+        }
+
     } catch (error) {
-        console.error("Error al cargar el PDF:", error);
-        alert("Error al cargar el PDF.");
+        console.error("❌ Error al cargar la lectura:", error);
+        alert("Ocurrió un error al cargar el libro.");
     }
 }

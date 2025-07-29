@@ -15,6 +15,7 @@ class Book extends Model
         'isbn',
         'imagen',
         'activo',
+        'contenido',
         
     ];
 
