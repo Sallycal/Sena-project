@@ -15,4 +15,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("nombre").value = user.name || "";
   document.getElementById("email").value = user.email || "";
   document.getElementById("usuario").value = user.username || user.email.split('@')[0];
+  
 });

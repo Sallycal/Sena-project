@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@ nav ul li a:hover {
 }
 
 /* Sección de contacto */
-#contacto {
+/* #contacto {
   padding: 40px 20px;
   display: flex;
   justify-content: center;
@@ -64,18 +64,18 @@ nav ul li a:hover {
 }
 
 /* Estilos del formulario */
-form .form-group {
+/* form .form-group {
   margin-bottom: 20px;
-}
+} */
 
-form label {
+/* form label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
   color: #444;
-}
+} */
 
-form input,
+/* form input,
 form textarea {
   width: 100%;
   padding: 12px;
@@ -84,9 +84,9 @@ form textarea {
   font-size: 14px;
   background-color: #f9f9f9;
   box-sizing: border-box;
-}
+} */
 
-form textarea {
+/* form textarea {
   resize: vertical;
 }
 
@@ -101,28 +101,28 @@ form button {
   display: block;
   margin: 0 auto;
   margin-top: 10px;
-}
+} */
 
-form button:hover {
+/* form button:hover {
   background-color: #45a049;
 }
 
 /* Información de contacto adicional */
-.contact-info {
+/* .contact-info {
   margin-top: 30px;
   text-align: center;
   color: #555;
-}
+}  */
 
-.contact-info p {
+/* .contact-info p {
   margin: 8px 0;
-}
+} */
 
 /* Pie de página */
-footer {
+/* footer {
   text-align: center;
   padding: 15px 0;
   background-color: white;
   color: #333;
   margin-top: 40px;
-}
+}   */

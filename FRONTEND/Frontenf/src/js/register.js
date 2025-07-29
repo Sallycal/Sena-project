@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
+      const alertModal = document.getElementById("register-alert");
+      const alertText = document.getElementById("register-alert-text");
+
+      alertText.textContent = " Registro exitoso. ¡Bienvenid@, " + data.user.name + "!";
+      alertModal.style.display = "flex";
+
     })
-
-    const alertModal = document.getElementById("register-alert");
-    const alertText = document.getElementById("register-alert-text");
-
-    alertText.textContent = " Registro exitoso. ¡Bienvenid@, " + data.user.name + "!";
-    alertModal.style.display = "flex";
 
     })
     .catch(error => {

@@ -14,7 +14,7 @@
         <li><a href="./book-list.html">Inicio</a></li>
         <li><a href="./categorias.html">Categorías</a></li>
         <li><a href="./mi_cuenta.html">Mi Cuenta</a></li>
-        <li><a href="./contacto.html">Contacto</a></li>
+        <!-- <li><a href="./contacto.html">Contacto</a></li> -->
       </ul>
     </nav>
   </header>
@@ -33,12 +33,24 @@
           
           <label for="usuario">Usuario:</label>
           <input type="text" id="usuario"  readonly>
+
+           <p> ¿Tienes alguna duda, sugerencia o necesitas ayuda? 
+            contáctanos directamente a través de:</p>
+
+          <label for="correo">Email:</label>
+          <input type="text" id="correo" value="conectalibrossena@gmail.com" readonly>
+
           
         </form>
       </div>
+
       <div class="account-actions">
-        <button onclick="cerrarSesion()">Cerrar Sesión</button>
-      </div>
+       <form action="/login.html">
+        <button type="submit" class="btn-modal">Cerrar Sesión</button>
+       </form>
+     </div>
+
+
     </div>
   </section>
 
