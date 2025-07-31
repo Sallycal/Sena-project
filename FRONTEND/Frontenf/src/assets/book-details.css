@@ -162,3 +162,58 @@ body {
   background-color: #c1b9eb;
 }
 
+.recomendaciones-container {
+  margin-top: 40px;
+  padding: 0 30px 60px 30px;
+}
+
+.recomendaciones-container h2 {
+  padding: 0 10px;
+}
+
+.carrusel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  gap: 15px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel-item {
+  min-width: 15%;
+  flex: 0 0 auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f8f8f8;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.carrusel-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
+
+.carrusel-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carrusel-item p {
+  display: none;
+}
+

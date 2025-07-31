@@ -60,23 +60,6 @@ function updatePagination() {
   document.getElementById("next-btn").disabled = currentPage * booksPerPage >= books.length;
 }
 
-document.getElementById("prev-btn").addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderBooks();
-    updatePagination();
-  }
-});
-
-document.getElementById("next-btn").addEventListener("click", () => {
-  if (currentPage * booksPerPage < books.length) {
-    currentPage++;
-    renderBooks();
-    updatePagination();
-  }
-
-});
-
 document.getElementById("search-btn").addEventListener("click", async () => {
   const query = document.getElementById("search").value.trim();
 

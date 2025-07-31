@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
@@ -50,13 +51,13 @@ class BookController extends Controller
   
     public function show($id)
     {
-        $book = Book::find($id);
+        $book = Book::with('categories')->findOrFail($id);
 
         if (!$book || !$book->activo) {
             return response()->json(['message' => 'Libro no encontrado o ha sido eliminado.'], 404);
         }
 
-        return response()->json($book);
+        return new BookResource($book);
     }
 
 

@@ -27,4 +27,11 @@ class Book extends Model
                 ->orderBy('pivot_position'); // siempre ordenadas
     }
 
+    public function readers()
+    {
+        return $this->belongsToMany(User::class, 'book_user_reads')
+                    ->withPivot('read_at')
+                    ->withTimestamps();  
+    }
+
 }

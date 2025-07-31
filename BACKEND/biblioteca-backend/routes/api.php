@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\BookReadController;
 
 //Ruta para registro
 Route::post('/register', [AuthController::class, 'register']);
@@ -41,5 +42,8 @@ Route::middleware('auth:sanctum')->group(function () {
 //Ruta de ver categoria
 Route::get('/books/category/{category}', [BookController::class, 'byCategory']);
 
+//Ruta para enviar la confirmacion de lectura (historial)
+Route::middleware('auth:sanctum')->post('/books/{book}/read', [BookReadController::class, 'markAsRead']);
 
+Route::middleware('auth:sanctum')->get('/user/history', [BookReadController::class, 'historialLecturas']);
 
