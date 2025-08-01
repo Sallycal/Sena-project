@@ -2,11 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3edf3; /* Fondo */
-  color: #33323d; /* Texto */
+  background-color: #f3edf3; 
+  color: #33323d; 
 }
 
-/* Encabezado */
+
 .book-card {
   max-width: 900px;
   margin: 40px auto 20px;
@@ -19,7 +19,7 @@ body {
   margin: 0;
 }
 
-/* Contenedor principal de detalles */
+
 .book-detail {
   display: flex;
   flex-direction: row;
@@ -34,7 +34,7 @@ body {
    box-shadow: 0 4px 8px rgba(155, 148, 197, 0.3);
 }
 
-/* Imagen del libro */
+
 .book-detail img {
   width: 160px;
   height: auto;
@@ -126,7 +126,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
+  background-color: rgba(0, 0, 0, 0.6); 
   justify-content: center;
   align-items: center;
 }
@@ -189,20 +189,61 @@ body {
 
 .carrusel-item {
   min-width: 15%;
+  max-width: 180px;
+  height: 250px;
   flex: 0 0 auto;
   border: 1px solid #ccc;
-  padding: 10px;
   background: #f8f8f8;
   text-align: center;
-  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .carrusel-item img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 120px;
   object-fit: cover;
-  margin: auto;
+  border-radius: 4px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carrusel-item h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  line-height: 1.2;
+  height: 2.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  text-align: center;
+  padding: 0 5px;
+}
+
+.carrusel-item p {
+  display: none; 
+}
+
+.ver-mas-btn {
+  margin-top: auto;
+  background-color: #6c63ff;
+  color: white;
+  padding: 6px 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 12px;
+  display: inline-block;
+  align-self: center;
 }
 
 .carrusel-btn {
@@ -211,9 +252,6 @@ body {
   font-size: 2rem;
   cursor: pointer;
   z-index: 1;
+  padding: 10px;
+  color: #333;
 }
-
-.carrusel-item p {
-  display: none;
-}
-

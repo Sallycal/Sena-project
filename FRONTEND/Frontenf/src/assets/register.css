@@ -20,7 +20,7 @@
     background: #e8daef;
     padding: 20px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(146, 151, 151, 0.671);
   }
   
   .form-register h2 {
@@ -45,6 +45,7 @@
   .form-register a:hover {
     text-decoration: underline;
   }
+
   
   .controls {
     width: 100%;
@@ -58,7 +59,7 @@
   
   .controls:focus {
     outline: none;
-    border-color: #1f53c5;
+    border-color: #f3f3f5;
     box-shadow: 0 0 4px rgba(31, 83, 197, 0.6);
   }
   
@@ -124,6 +125,7 @@
   background-color: #c1b9eb;
 }
 
+
 /* Animación opcional */
 @keyframes fadeIn {
   from {
@@ -135,6 +137,9 @@
     transform: scale(1);
   }
 }
+
+
+
 
 
 

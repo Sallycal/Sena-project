@@ -1,112 +1,114 @@
 
-     body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f3edf3;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .formulario {
-      width: 400px;
-      background: hsl(248, 41%, 75%);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      padding: 40px;
-      height: 300px;
-      
-    }
-    
-    .formulario h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: white;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3edf3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    }
-    
-    .formulario form {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .formulario .username, .formulario .contraseña {
-      position: relative;
-      margin-bottom: 20px;
-      width: 360px;
-
-    }
-    
-    .formulario input[type="text"], .formulario input[type="password"] {
-      width: 100%;
-      padding: 10px 10px 10px 30px;
-      font-size: 16px;
-      border: 1px solid #cfcbcb;
-      border-radius: 5px;
-      outline: none;
-      background: transparent;
-      outline: none;
-    }
-    
-    .formulario label {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      transform: translateY(-50%);
-      color: rgb(204, 204, 204);
-      pointer-events: none;
-      font-size: 14px;
-      transition: 0.3s ease all;
-
-    }
-    
-    .formulario input[type="submit"] {
-      padding: 10px;
-      font-size: 16px;
-      background-color: #f7f3f3;
-      color: blue;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    .formulario input[type="submit"]:hover {
-      background-color: #cbd1d8c0;
-    }
-    
-    .recordar, .registrarse a {
-      text-align: center;
-      display: block;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #f1f3f5;
-      text-decoration: none;
-    }
-
-    .recordar a,
-    .recordar a:visited,
-    .recordar a:hover,
-    .recordar a:active {
-      color: white;
-      text-decoration: none;
-    }
-
-    .recordar:hover, .registrarse a:hover {
-      text-decoration: underline;
-    }
-
-    input::placeholder {
-    color: #ffffff;
-    opacity: 1;
-    }
-
-    input {
-    color: #ffffff;
-    }
-
-
-
+.formulario {
+  width: 400px;
+  background: hsl(248, 41%, 75%);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(245, 243, 243, 0.2);
+  padding: 40px;
+  height: 300px;
   
+}
+
+.formulario h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: white;
+
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario .username, .formulario .contraseña {
+  position: relative;
+  margin-bottom: 20px;
+  width: 360px;
+
+}
+
+.formulario input[type="text"], .formulario input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 30px;
+  font-size: 16px;
+  border: 1px solid #cfcbcb;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  outline: none;
+}
+
+.formulario label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: translateY(-50%);
+  color:  #ffffff;
+  pointer-events: none;
+  font-size: 14px;
+  transition: 0.3s ease all;
+
+}
+
+.formulario input[type="submit"] {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f7f3f3;
+  color: blue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formulario input[type="submit"]:hover {
+  background-color: #cbd1d8c0;
+}
+
+.recordar, .registrarse a {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+.recordar a,
+.recordar a:visited,
+.recordar a:hover,
+.recordar a:active {
+
+
+  color: white;
+  text-decoration: none;
+}
+
+.recordar:hover, .registrarse a:hover {
+  text-decoration: underline;
+}
+
+.input::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.input {
+  color: #ffffff;
+}
+
+
+
+

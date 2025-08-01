@@ -1,29 +1,41 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f3edf3;
 }
 
 header {
-    background-color: #9b94c5;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+  background-color: hsl(249, 30%, 68%);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
 }
 
-header nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    font-weight: 500;
+header h1 {
+  margin: 0;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 
 .search-bar {
     text-align: center;
@@ -60,13 +72,11 @@ header nav a:hover {
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  text-decoration: none; /* Para quitar el subrayado si usas <a> */
+  text-decoration: none; 
   position: absolute;
   top: 4rem;
   right: 1rem;
 }
-
-
 
 
 .book-list {
@@ -78,26 +88,26 @@ header nav a:hover {
 }
 
 .book-card {
-   background: white;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  width: calc(20% - 1rem); /* 5 por fila */
-  height: 400px; /* altura igual para todas */
+  width: calc(20% - 1rem); 
+  height: 400px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* distribuye el contenido verticalmente */
+  justify-content: space-between; 
 }
 
 .book-card img {
-    width: 160px;
-    margin: 0 auto;
-    height: 240px;
-    border-radius: 5px;
+  width: 160px;
+  margin: 0 auto;
+  height: 240px;
+  border-radius: 5px;
 }
 
 .book-card h3 {

@@ -5,10 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let nombre = document.getElementById("nombre").value.trim();
     let email = document.getElementById("correo").value.trim();
     let contraseña = document.getElementById("contraseña").value.trim();
+    let politicaAceptada = document.getElementById("politica").checked;
+
 
     if (!nombre || !email || !contraseña) {
       alert("Por favor, complete todos los campos.");
       return;
+    }
+
+    if (!politicaAceptada) {
+      alert("Debe aceptar la Política de tratamiento de la información para continuar.");
+     return;
     }
 
     if (contraseña.length < 6) {

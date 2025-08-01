@@ -1,0 +1,111 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3edf3;
+}
+
+header {
+  background-color: hsl(249, 30%, 68%);
+  color: white;
+  padding: 45px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+
+.book-history {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* 📚 Card del libro */
+.history-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: calc(18% - 1rem); 
+  height: 400px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+.history-card:hover {
+  transform: scale(1.02);
+}
+
+.history-card img {
+  width: 160px;
+  margin: 0 auto;
+  height: 240px;
+  border-radius: 5px;
+}
+
+/* 📖 Título */
+.history-card h3 {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ✍️ Autor */
+.history-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #b0a7e0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #7e78aa;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#page-info {
+  font-size: 1rem;
+  color: #333;
+}
+
+
