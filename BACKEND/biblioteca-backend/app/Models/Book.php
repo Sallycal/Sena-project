@@ -34,4 +34,12 @@ class Book extends Model
                     ->withTimestamps();  
     }
 
+    public function usersWhoSaved()
+    {
+        return $this->belongsToMany(User::class, 'saved_books')
+                ->withPivot('is_saved')
+                ->withTimestamps();
+    }
+
+
 }

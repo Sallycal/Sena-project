@@ -111,4 +111,19 @@ document.getElementById("next-btn").addEventListener("click", () => {
 });
 
 
+// Lógica para el menú desplegable
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.getElementById("menu-button");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+
+  if (menuButton && dropdownMenu) {
+    menuButton.addEventListener("click", (e) => {
+      e.preventDefault(); // Evita que recargue la página
+      dropdownMenu.classList.toggle("show"); // Muestra u oculta el submenú
+    });
+  }
+});
+
+
+
   

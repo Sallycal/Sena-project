@@ -49,4 +49,12 @@ class User extends Authenticatable
                 ->withPivot('read_at')
                 ->withTimestamps();
     }
+
+    public function savedBooks()
+    {
+        return $this->belongsToMany(Book::class, 'saved_books')
+                ->withPivot('is_saved')
+                ->withTimestamps();
+    }
+
 }

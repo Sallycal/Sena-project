@@ -148,3 +148,34 @@ nav ul li a:hover {
   color: #333;
 }
 
+
+/* Oculta el submenú por defecto */
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+/* Estilo cuando se muestra */
+.dropdown.show {
+  display: block;
+}
+
+/* Opcional: estilo de los elementos del submenú */
+.dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: #f0f0f0;
+}
+
+

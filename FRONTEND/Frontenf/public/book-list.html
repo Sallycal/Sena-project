@@ -12,21 +12,28 @@
   <header>
    <h1>ConectaLibros</h1>
      <nav>
-       <ul>
-         <li><a href="book-list.html">Inicio</a></li>
-         <li><a href="categorias.html">Categorías</a></li>
+        <ul>
+          <li><a href="book-list.html">Inicio</a></li>
+          <li><a href="categorias.html">Categorías</a></li>
           <li><a href="mi_cuenta.html">Mi Cuenta</a></li>
-        </ul>
-     </nav>
-  </header>
 
+          <li class="menu-toggle">
+            <a href="#" id="menu-button">Menú ▼</a>
+              <ul class="dropdown" id="dropdown-menu">
+                <li><a href="book-history.html">Historial</a></li>
+                <li><a href="#">Guardados</a></li>
+            </ul>
+          </li>
+       </ul>
+    </nav>
+  </header>
 
   <section class="search-bar">
     <input type="text" placeholder="Buscar libros..." id="search" />
     <button id="search-btn">Buscar</button>
   </section>
 
-    <a href="book-history.html" class="book-history">Iniciar sesión</a>
+    <a href="login.html" class="login">Iniciar sesión</a>
 
 
   <section class="book-list" id="book-list">

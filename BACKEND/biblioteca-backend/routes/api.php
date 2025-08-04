@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\BookReadController;
+use App\Http\Controllers\BookSaveController;
 
 //Ruta para registro
 Route::post('/register', [AuthController::class, 'register']);
@@ -44,6 +45,12 @@ Route::get('/books/category/{category}', [BookController::class, 'byCategory']);
 
 //Ruta para enviar la confirmacion de lectura (historial)
 Route::middleware('auth:sanctum')->post('/books/{book}/read', [BookReadController::class, 'markAsRead']);
-
 Route::middleware('auth:sanctum')->get('/user/history', [BookReadController::class, 'historialLecturas']);
+
+//Rute para guardar libros 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/books/{book}/save', [BookSaveController::class, 'toggleSave']);
+    Route::get('/user/saved-books', [BookSaveController::class, 'listSavedBooks']);
+});
+
 
