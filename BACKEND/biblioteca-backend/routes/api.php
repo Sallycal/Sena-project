@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\BookReadController;
 use App\Http\Controllers\BookSaveController;
+use App\Http\Middleware\OptionalAuth;
 
 //Ruta para registro
 Route::post('/register', [AuthController::class, 'register']);
@@ -14,7 +15,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 //Ruta para ver todos los libros
-Route::get('/books', [BookController::class, 'index']);
+Route::middleware('optional.auth')->group(function () {
+    Route::get('/books', [BookController::class, 'index']);
+});
 
 //Ruta de buscador
 Route::get('/books/search', [BookController::class, 'search']);

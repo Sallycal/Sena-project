@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ConectaLibros</title>
-  <link rel="stylesheet" href="../src/assets/book-list.css" />
+  <link rel="stylesheet" href="../src/assets/book-list.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -18,23 +19,27 @@
           <li><a href="mi_cuenta.html">Mi Cuenta</a></li>
 
           <li class="menu-toggle">
-            <a href="#" id="menu-button">Menú ▼</a>
-              <ul class="dropdown" id="dropdown-menu">
+            <a href="#">Menú ▼</a>
+             <ul class="dropdown">
                 <li><a href="book-history.html">Historial</a></li>
-                <li><a href="#">Guardados</a></li>
-            </ul>
-          </li>
+                  <hr>
+                <li><a href="book-saved.html">Guardados</a></li>
+                  <!-- <hr>
+                <li><a href="#">Guardados</a></li> -->
+
+                
+              </ul>
+         </li>
        </ul>
-    </nav>
+      </nav>
+        
+    <a href="login.html" class="login-btn">Iniciar sesión</a>
   </header>
 
   <section class="search-bar">
     <input type="text" placeholder="Buscar libros..." id="search" />
     <button id="search-btn">Buscar</button>
   </section>
-
-    <a href="login.html" class="login">Iniciar sesión</a>
-
 
   <section class="book-list" id="book-list">
     <!-- Aquí se cargarán los libros dinámicamente -->

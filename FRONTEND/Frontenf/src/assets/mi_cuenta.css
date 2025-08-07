@@ -107,3 +107,46 @@ footer {
   color: #333;
   margin-top: 35px;
 }
+
+/* Oculta el submenú por defecto */
+.menu-toggle {
+  position: relative;
+}
+
+.menu-toggle .dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 12px; 
+  z-index: 100;
+  min-width: 150px;
+}
+
+.menu-toggle:hover .dropdown {
+  display: block;
+  border-radius: 12px; 
+}
+
+.menu-toggle .dropdown li {
+  padding: 10px;
+  border-radius: 12px; 
+}
+
+.menu-toggle .dropdown li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.menu-toggle .dropdown li:hover {
+  background-color: #ece9f5;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 5px 0;
+}

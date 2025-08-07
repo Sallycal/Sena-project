@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  const API_URL = "http://127.0.0.1:8000/api/user/history";
+  const API_URL = "http://127.0.0.1:8000/api/user/saved-books";
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -18,17 +18,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     const result = await response.json();
     const books = result.data;
 
-    const container = document.getElementById("book-history");
+    const container = document.getElementById("book-saved");
     container.innerHTML = "";
 
     if (!books || books.length === 0) {
-      container.innerHTML = "<p>No hay historial disponible.</p>";
+      container.innerHTML = "<p>No hay libros guardados disponible.</p>";
       return;
     }
 
     books.forEach((book) => {
       const card = document.createElement("div");
-      card.classList.add("history-card"); 
+      card.classList.add("saved-card"); 
 
       card.innerHTML = `
         <img src="${book.imagen}" alt="${book.titulo}">
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
   } catch (error) {
-    console.error("Error al obtener historial:", error);
-    alert("Ocurrió un error al cargar el historial.");
+    console.error("Error al obtener libros guardados:", error);
+    alert("Ocurrió un error al cargar los libros guardados.");
   }
 
 });

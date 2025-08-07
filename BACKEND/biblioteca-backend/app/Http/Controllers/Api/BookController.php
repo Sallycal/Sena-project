@@ -6,18 +6,33 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
+use App\Http\Resources\ListBookResource;
 
 class BookController extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
         $books = Book::where('activo', true)->get();
-         return response()->json($books);
-        //listar todos los libros
+        $user = $request->user();
 
+        if ($user) {
+            $savedBookIds = $user->savedBooks()
+            ->wherePivot('is_saved', 1)
+            ->pluck('book_id')
+            ->toArray();
+
+            foreach ($books as $book) {
+                $book->is_saved = in_array($book->id, $savedBookIds);
+            }
+        } else {
+            foreach ($books as $book) {
+                $book->is_saved = false;
+            }
+        }
+
+        return ListBookResource::collection($books);
     }
-
    
     public function store(Request $request)
     {
