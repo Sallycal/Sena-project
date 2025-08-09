@@ -7,6 +7,7 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
 use App\Http\Resources\ListBookResource;
+use App\Http\Resources\CategoryBooksResource;
 
 class BookController extends Controller
 {
@@ -131,26 +132,45 @@ class BookController extends Controller
         }
     }
 
-    public function byCategory($categoryId)
+   public function byCategory(Request $request, $categoryId)
     {
-        $books = \App\Models\Book::where('activo', true) 
+        $user = $request->user();
+
+        // Traer libros por categoría y cargar 'position'
+        $books = \App\Models\Book::where('activo', true)
             ->whereHas('categories', function($query) use ($categoryId) {
                 $query->where('categories.id', $categoryId);
             })
-
-        ->with(['categories'])
-        ->get()
-        ->sortBy(function($book) use ($categoryId) {
-            foreach ($book->categories as $cat) {
-                if ($cat->id == $categoryId) {
-                    return $cat->pivot->position;
+            ->with([
+                'categories' => function ($query) {
+                    $query->select('categories.id', 'categories.name')
+                        ->withPivot('position');
                 }
-            }
-            return 999; // En caso de que no tenga esa categoría
+            ])
+            ->get();
+
+        // IDs de libros guardados por el usuario autenticado
+        $savedBookIds = $user
+            ? $user->savedBooks()
+            ->wherePivot('is_saved', 1)
+            ->pluck('book_id')
+            ->toArray()
+            : [];
+
+        // Agregar propiedad is_saved y ordenar por position
+        $books = $books->map(function ($book) use ($savedBookIds, $categoryId) {
+            $book->is_saved = in_array($book->id, $savedBookIds);
+
+            // Encontrar la categoría actual y sacar su posición
+            $currentCategory = $book->categories->firstWhere('id', $categoryId);
+            $book->position = $currentCategory ? $currentCategory->pivot->position : 999;
+
+            return $book;
         })
+        ->sortBy('position')
         ->values();
 
-        return response()->json($books);
+        return CategoryBooksResource::collection($books);
     }
 
 

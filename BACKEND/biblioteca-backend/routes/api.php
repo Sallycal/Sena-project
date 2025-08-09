@@ -17,6 +17,9 @@ Route::post('/login', [AuthController::class, 'login']);
 //Ruta para ver todos los libros
 Route::middleware('optional.auth')->group(function () {
     Route::get('/books', [BookController::class, 'index']);
+    //Ruta de ver categoria
+    Route::get('/books/category/{category}', [BookController::class, 'byCategory']);
+
 });
 
 //Ruta de buscador
@@ -43,8 +46,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
-//Ruta de ver categoria
-Route::get('/books/category/{category}', [BookController::class, 'byCategory']);
 
 //Ruta para enviar la confirmacion de lectura (historial)
 Route::middleware('auth:sanctum')->post('/books/{book}/read', [BookReadController::class, 'markAsRead']);
