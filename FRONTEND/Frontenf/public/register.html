@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <form id="registroForm" class="form-register">
+  <!-- <form id="registroForm" class="form-register">
     <p>Para hacer notas, agregar favoritos, ver el historial y acceder a otros servicios,
       debe crear una <a href="#">cuenta gratis</a> como lector
     </p>
@@ -36,6 +36,51 @@
     </div>
   </div>
 
+  <script type="module" src="../src/js/register.js"></script> -->
+
+ <div class="register-page">
+    
+    <!-- Columna izquierda -->
+    <div class="left-section">
+      <h1 class="logo"><i class="fas fa-book-open"></i> ConectaLibros</h1>
+      <p class="mensaje">
+        Conecta con el conocimiento, guarda tus libros favoritos y lleva tu lectura a otro nivel.
+      </p>
+    </div>
+
+    <!-- Columna derecha (tu formulario actual) -->
+    <div class="right-section">
+      <form id="registroForm" class="form-register">
+        <p>
+          Para hacer notas, agregar favoritos, ver el historial y acceder a otros servicios,
+          debe crear una <a href="#">cuenta gratis</a> como lector
+        </p>
+
+        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre completo">
+        <input class="controls" type="email" name="correo" id="correo" placeholder="Correo electrónico">
+        <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+
+        <label class="checkbox-container">
+          <input type="checkbox" id="politica" />
+          Acepto la <a href="#">Política de tratamiento de la información</a> y el 
+          <a href="#">Marco general de uso</a>
+        </label>
+
+        <input class="boton" type="submit" value="Crear cuenta">
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="register-alert" class="modal">
+    <div class="modal-content">
+      <p id="register-alert-text">🎉 Registro exitoso. ¡Bienvenida!</p>
+      <a href="login.html" class="btn-modal">Iniciar sesión</a>
+    </div>
+  </div>
+
   <script type="module" src="../src/js/register.js"></script>
+
 </body>
 </html>

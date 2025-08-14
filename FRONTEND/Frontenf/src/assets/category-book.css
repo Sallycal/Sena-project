@@ -138,3 +138,39 @@ footer {
   font-size: 1.5rem;
   text-align: center;
 }
+
+
+/* boton de guardado */
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-details {
+  background-color: #6c63ff;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.save-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6c63ff;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.save-btn:hover {
+  transform: scale(1.1);
+  color: #6c65a1;
+}
+
+.icon-bookmark.saved {
+  color: #6c65a1; 
+}

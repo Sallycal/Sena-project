@@ -56,7 +56,7 @@ body {
   left: 10px;
   top: 10px;
   transform: translateY(-50%);
-  color:  #ffffff;
+  color: #eee7f1 ;
   pointer-events: none;
   font-size: 14px;
   transition: 0.3s ease all;

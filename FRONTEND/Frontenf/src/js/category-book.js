@@ -48,10 +48,13 @@ function renderCategoryBooks(booksInCategory) {
       <img src="${book.imagen}" alt="Portada del libro">
       <h3>${book.titulo}</h3>
       <h3>${book.autor}</h3>
-      <a href="book-details.html?id=${book.id}">Ver Detalles</a>
-      <button class="save-btn" data-id="${book.id}" aria-label="Guardar libro">
-        <i class="fa-bookmark icon-bookmark ${book.is_saved ? 'fa-solid saved' : 'fa-regular'}" data-id="${book.id}"></i>
-      </button>
+
+      <div class="card-actions">
+       <a href="book-details.html?id=${book.id}">Ver Detalles</a>
+       <button class="save-btn" data-id="${book.id}" aria-label="Guardar libro">
+         <i class="fa-bookmark icon-bookmark ${book.is_saved ? 'fa-solid saved' : 'fa-regular'}" data-id="${book.id}"></i>
+        </button>
+      </div>
     `;
 
     container.appendChild(card);
